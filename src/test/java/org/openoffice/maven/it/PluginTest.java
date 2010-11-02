@@ -33,8 +33,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codehaus.plexus.util.cli.CommandLineException;
-import org.junit.AfterClass;
-import org.junit.Test;
+import org.junit.*;
+
+import fit.Counts;
 
 
 /**
@@ -81,6 +82,20 @@ public class PluginTest {
 				"-DarchetypeVersion=1.1.1-SNAPSHOT" };
 		int returnValue = mvnRunner.run(args);
 		assertEquals(0, returnValue);
+	}
+	
+	/**
+	 * This test should start all the different mvn commands which are listed
+	 * on {@link "http://github.com/oboehm/maven-ooo-plugin-it/wiki"}.
+	 * 
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	//@Test
+	public void startIntegrationTest() throws IOException {
+		FitRunner fitRunner = new FitRunner(new File("target", "result.html"));
+		Counts counts = fitRunner.run();
+        assertEquals(0, counts.exceptions);
+        assertEquals(0, counts.wrong);
 	}
 
 }
