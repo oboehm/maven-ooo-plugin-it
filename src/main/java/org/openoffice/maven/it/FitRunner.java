@@ -26,7 +26,6 @@ package org.openoffice.maven.it;
 
 import java.io.*;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -36,6 +35,7 @@ import org.apache.commons.logging.LogFactory;
 import fit.Counts;
 import fit.FileRunner;
 
+// TODO: Auto-generated Javadoc
 /**
  * This is the entry point to start the integration test with FIT.
  * 
@@ -47,16 +47,8 @@ import fit.FileRunner;
 public class FitRunner extends FileRunner {
 	
 	private static final Log log = LogFactory.getLog(FitRunner.class);
-	private static final URI INPUT_URI;
+	private final URI inputURI;
 	private final File outputFile;
-	
-	static {
-		try {
-			INPUT_URI = new URI("http://github.com/oboehm/maven-ooo-plugin-it");
-		} catch (URISyntaxException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-	}
 	
 	/**
 	 * Instantiates a new FitRunner.
@@ -73,20 +65,43 @@ public class FitRunner extends FileRunner {
 	 * @param outputFile the output file
 	 */
 	public FitRunner(final File outputFile) {
-		this.outputFile = outputFile;
+		this(new File("README.textile"), outputFile);
 	}
 	
 	/**
+	 * Instantiates a new FitRunner.
+	 *
+	 * @param inputFile the input file
+	 * @param outputFile the output file
+	 */
+	public FitRunner(final File inputFile, final File outputFile) {
+		this(inputFile.toURI(), outputFile);
+	}
+	
+	/**
+	 * Instantiates a new FitRunner.
+	 *
+	 * @param inputURI e.g. "http://github.com/oboehm/maven-ooo-plugin-it"
+	 * @param outputFile the output file
+	 */
+	public FitRunner(final URI inputURI, final File outputFile) {
+		this.inputURI = inputURI;
+		this.outputFile = outputFile;
+	}
+
+	/**
 	 * Reads the input URI and processes the HTML.
 	 *
+	 * @return the counts
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @see FileRunner#run(String[])
 	 */
 	@SuppressWarnings("unchecked")
 	public Counts run() throws IOException {
-		this.fixture.summary.put("input URI", INPUT_URI);
-        this.fixture.summary.put("output file", this.outputFile);
-        this.input = read(INPUT_URI);
+		this.fixture.summary.put("input URI", this.inputURI);
+        this.fixture.summary.put("output file", this.outputFile.getAbsoluteFile());
+        log.info("reading " + this.inputURI + "...");
+        this.input = read(this.inputURI);
         this.output = new PrintWriter(new BufferedWriter(new FileWriter(this.outputFile)));
         this.process();
         log.info("result written to " + this.outputFile.getAbsolutePath());
@@ -94,7 +109,17 @@ public class FitRunner extends FileRunner {
         return this.fixture.counts;
 	}
 
-	private static String read(URI uri) throws IOException {
+	/**
+	 * Read.
+	 *
+	 * @param uri the uri
+	 * @return the string
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	private String read(URI uri) throws IOException {
+		if (uri.getScheme().startsWith("file")) {
+			return read(new File(uri));
+		}
 		HttpClient client = new HttpClient();
 		client.getParams().setParameter("http.protocol.content-charset",
 				"UTF-8");

@@ -90,7 +90,7 @@ public class PluginTest {
 	 * 
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	//@Test
+	@Test
 	public void startIntegrationTest() throws IOException {
 		FitRunner fitRunner = new FitRunner(new File("target", "result.html"));
 		Counts counts = fitRunner.run();

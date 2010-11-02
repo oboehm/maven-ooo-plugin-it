@@ -1,6 +1,31 @@
-This is the integration test project for the maven-ooo-plugin.
-For more information see "maven-ooo-plugin-it/wiki":http://github.com/oboehm/maven-ooo-plugin-it/wiki
+<h1>Integration Test for maven-ooo-plugin</h1>
+<p>This is the integration test project for the maven-ooo-plugin.
+For more information see <a href="http://github.com/oboehm/maven-ooo-plugin-it/wiki">maven-ooo-plugin-it/wiki</a>.</p>
+<p>You may wonder why this is a <i>.textile</i> file with no
+<a href="http://www.textism.com/tools/textile">textile syntax</a>
+inside. The reason is that is also input for
+<a href="http://fit.c2.com">FIT</a> which understands only HTML.
 
-|org.openoffice.maven.it.fixture.IgnoreFixture|
-|date       |remarks|
-|02-Nov-2010|created|
+<h3>History</h3>
+<table>
+  <tr>
+  	<td>org.openoffice.maven.it.fixture.IgnoreFixture</td>
+  </tr>
+  <tr>
+  	<td>date</td><td>remarks</td>
+  </tr>
+  <tr>
+  	<td>02-Nov-2010</td><td>created</td>
+  </tr>
+</table>
+
+<h3>Summary</h3>
+<p>
+  The following table will be filled by FIT if you use this document as
+  input file.
+</p>
+<table>
+  <tr>
+  	<td>fit.Summary</td>
+  </tr>
+</table>
