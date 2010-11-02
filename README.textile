@@ -1,2 +1,6 @@
 This is the integration test project for the maven-ooo-plugin.
-For more information see "README.html":http://github.com/oboehm/maven-ooo-plugin-it/blob/master/README.html
+For more information see "maven-ooo-plugin-it/wiki":http://github.com/oboehm/maven-ooo-plugin-it/wiki
+
+|org.openoffice.maven.it.fixture.IgnoreFixture|
+|date       |remarks|
+|02-Nov-2010|created|
