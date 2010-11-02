@@ -70,7 +70,7 @@ public class PluginTest {
 	 * 
 	 * @throws CommandLineException if mvn command fails
 	 */
-	//@Test
+	@Test
 	public void testArchetypeCreate() throws CommandLineException {
 		String[] args = { "archetype:create",
 				"-DgroupId=org.openoffice.dev.tests",

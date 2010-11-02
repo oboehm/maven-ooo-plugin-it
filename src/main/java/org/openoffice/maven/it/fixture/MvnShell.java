@@ -24,6 +24,9 @@
 
 package org.openoffice.maven.it.fixture;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fit.Fixture;
 
 /**
@@ -34,6 +37,16 @@ import fit.Fixture;
  * @since 1.1.1 (02.11.2010)
  * {@link "http://fit.c2.com/wiki.cgi?NetworkExample"}
  */
-public class MvnShell extends Fixture {
+public final class MvnShell extends Fixture {
+	
+	private final List<String> arguments = new ArrayList<String>();
+	
+	public void addArgument(final String arg) {
+		this.arguments.add(arg);
+	}
+	
+	public boolean hasArguments() {
+		return !this.arguments.isEmpty();
+	}
 
 }

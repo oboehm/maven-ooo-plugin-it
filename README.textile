@@ -1,9 +1,9 @@
 <h1>Integration Test for maven-ooo-plugin</h1>
-<p>This is the integration test project for the maven-ooo-plugin. The use of this plugin is described on the OpenOffice.org wiki article "<a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a>".</p>
-<p>This README file is used as input file for <a href="http://fit.c2.com">FIT</a> which understands only HTML. So don't wonder about the .textile suffix of this README. It is used because <a href="http://github.com">github</a> supports this kind of README but you will find no a href="http://www.textism.com/tools/textile">textile syntax</a> inside, only HTML.</p>
+<p>This is the integration test project for the maven-ooo-plugin. The use of this plugin is described on the OpenOffice.org wiki article <a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a>.</p>
+<p>This README file is used as input file for <a href="http://fit.c2.com">FIT</a> which understands only HTML. So don't wonder about the .textile suffix of this README. It is used because <a href="http://github.com">github</a> supports this kind of README but you will find no <a href="http://www.textism.com/tools/textile">textile syntax</a> inside, only HTML.</p>
 
 <h2>Features</h2>
-<p>The structure of this README follows the structure of "<a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a>" and adds the table neeed for the integration tests of the maven-ooo-plugin.</p>
+<p>The structure of this README follows the structure of <a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a> and adds the table neeed for the integration tests of the maven-ooo-plugin.</p>
 
 <h3>Generating an Extension project</h3>
 <p>This will be done, by using a maven archetype for Uno projects.</p>
@@ -16,6 +16,51 @@
       <td>start</td>
       <td>org.openoffice.maven.it.fixture.MvnShell</td>
       <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>check</td>
+      <td>hasArguments</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>archetype:create</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>-DgroupId=org.openoffice.dev.tests</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>-DartifactId=ooo-ext-test</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>-Dversion=1.0</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>-DpackageName=org.openoffice.dev</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>-DarchetypeGroupId=org.openoffice.dev</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>-DarchetypeArtifactId=maven-ooo-plugin</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>-DarchetypeVersion=1.1.1-SNAPSHOT</td>
     </tr>
   </tbody>
 </table>
