@@ -1,22 +1,41 @@
 <h1>Integration Test for maven-ooo-plugin</h1>
-<p>This is the integration test project for the maven-ooo-plugin.
-For more information see <a href="http://github.com/oboehm/maven-ooo-plugin-it/wiki">maven-ooo-plugin-it/wiki</a>.</p>
-<p>You may wonder why this is a <i>.textile</i> file with no
-<a href="http://www.textism.com/tools/textile">textile syntax</a>
-inside. The reason is that is also input for
-<a href="http://fit.c2.com">FIT</a> which understands only HTML.
+<p>This is the integration test project for the maven-ooo-plugin. The use of this plugin is described on the OpenOffice.org wiki article "<a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a>".</p>
+<p>This README file is used as input file for <a href="http://fit.c2.com">FIT</a> which understands only HTML. So don't wonder about the .textile suffix of this README. It is used because <a href="http://github.com">github</a> supports this kind of README but you will find no a href="http://www.textism.com/tools/textile">textile syntax</a> inside, only HTML.</p>
 
+<h2>Features</h2>
+<p>The structure of this README follows the structure of "<a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a>" and adds the table neeed for the integration tests of the maven-ooo-plugin.</p>
+
+<h3>Generating an Extension project</h3>
+<p>This will be done, by using a maven archetype for Uno projects.</p>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">fit.ActionFixture</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>org.openoffice.maven.it.fixture.MvnShell</td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Appendix</h2>
 <h3>History</h3>
-<table>
-  <tr>
-  	<td>org.openoffice.maven.it.fixture.IgnoreFixture</td>
-  </tr>
-  <tr>
-  	<td>date</td><td>remarks</td>
-  </tr>
-  <tr>
-  	<td>02-Nov-2010</td><td>created</td>
-  </tr>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="2">org.openoffice.maven.it.fixture.IgnoreFixture</td>
+    </tr>
+    <tr>
+  	  <td><b>Date</b></td>
+  	  <td><b>Remarks</b></td>
+    </tr>
+    <tr>
+  	  <td>02-Nov-2010</td>
+  	  <td>created</td>
+    </tr>
+  </tbody>
 </table>
 
 <h3>Summary</h3>
@@ -24,8 +43,8 @@ inside. The reason is that is also input for
   The following table will be filled by FIT if you use this document as
   input file.
 </p>
-<table>
+<table cellspacing="0" cellpadding="3" border="1">
   <tr>
-  	<td>fit.Summary</td>
+  	<td colspan="2">fit.Summary</td>
   </tr>
 </table>
