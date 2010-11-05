@@ -24,8 +24,10 @@
 
 package org.openoffice.maven.it.fixture;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.codehaus.plexus.util.cli.*;
 
 import fit.Fixture;
 
@@ -39,14 +41,70 @@ import fit.Fixture;
  */
 public final class MvnShell extends Fixture {
 	
-	private final List<String> arguments = new ArrayList<String>();
+	private static final Log log = LogFactory.getLog(MvnShell.class);
+	private final Commandline commandline = new Commandline("mvn");
+	private Integer exitCode;
 	
-	public void addArgument(final String arg) {
-		this.arguments.add(arg);
+	/**
+	 * Instantiates a new mvn shell.
+	 */
+	public MvnShell() {
+		initWorkingDirectory();
 	}
 	
+	private void initWorkingDirectory() {
+		String tmpDir = System.getProperty("java.io.tmpdir");
+		commandline.setWorkingDirectory(tmpDir);
+	}
+
+	/**
+	 * Adds the argument.
+	 *
+	 * @param arg e.g. "--help"
+	 */
+	public void addArgument(final String arg) {
+		this.commandline.addArguments(new String[] { arg });
+	}
+	
+	/**
+	 * Checks for arguments.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean hasArguments() {
-		return !this.arguments.isEmpty();
+		return this.commandline.getArguments().length > 0;
+	}
+	
+	/**
+	 * Runs (or executes) the Maven command.
+	 *
+	 * @throws CommandLineException the command line exception
+	 */
+	public void run() throws CommandLineException {
+        CommandLineUtils.StringStreamConsumer output = new CommandLineUtils.StringStreamConsumer();
+        CommandLineUtils.StringStreamConsumer error = new CommandLineUtils.StringStreamConsumer();
+        log.info("starting " + commandline + "...");
+        exitCode = CommandLineUtils.executeCommandLine(commandline, output, error);
+        String outmsg = output.getOutput().trim();
+        if (StringUtils.isNotEmpty(outmsg)) {
+            log.info(outmsg);
+        }
+        String errmsg = error.getOutput().trim();
+        if (StringUtils.isNotEmpty(errmsg)) {
+            log.warn(errmsg);
+        }
+	}
+	
+	/**
+	 * Gets the exit code of the last started Maven command.
+	 *
+	 * @return the exit code
+	 */
+	public int getExitCode() {
+		if (this.exitCode == null) {
+			throw new IllegalStateException(this.commandline + " not yet executed");
+		}
+		return this.exitCode.intValue();
 	}
 
 }
