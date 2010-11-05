@@ -69,4 +69,16 @@ public final class MvnShellTest {
 		assertEquals(0, mvnShell.getExitCode());
 	}
 
+	/**
+	 * Test method for {@link org.openoffice.maven.it.fixture.MvnShell#run()}.
+	 *
+	 * @throws CommandLineException the command line exception
+	 */
+	@Test
+	public void testRunNotOK() throws CommandLineException {
+		mvnShell.addArgument("dummy");
+		mvnShell.run();
+		assertEquals(1, mvnShell.getExitCode());
+	}
+
 }
