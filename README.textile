@@ -36,11 +36,6 @@
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>check</td>
-      <td>hasArguments</td>
-      <td>false</td>
-    </tr>
-    <tr>
       <td>enter</td>
       <td>addArgument</td>
       <td>archetype:create</td>
