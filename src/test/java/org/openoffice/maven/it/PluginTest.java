@@ -24,16 +24,14 @@
 
 package org.openoffice.maven.it;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.plexus.util.cli.CommandLineException;
-import org.junit.*;
+import org.junit.Test;
 
 import fit.Counts;
 
@@ -46,43 +44,7 @@ import fit.Counts;
  */
 public class PluginTest {
 	
-	private static final String ARTIFACT_ID = "ooo-ext-test";
 	private static final Log log = LogFactory.getLog(PluginTest.class);
-	private static MavenRunner mvnRunner = new MavenRunner();
-	
-	/**
-	 * Clean archetype directory - the created archetype directory will be
-	 * removed.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	@AfterClass
-	public static void cleanArchetypeDirectory() throws IOException {
-		File workingDir = mvnRunner.getCommandline().getWorkingDirectory();
-		File archetypeDir = new File(workingDir, ARTIFACT_ID);
-		log.info("cleaning " + archetypeDir + "...");
-		FileUtils.deleteDirectory(archetypeDir);
-	}
-	
-	/**
-	 * This test calls 'mvn archetype:create ...' as described in
-	 * {@link "http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration#Generating_an_Extension_project"}.
-	 * 
-	 * @throws CommandLineException if mvn command fails
-	 */
-	@Test
-	public void testArchetypeCreate() throws CommandLineException {
-		String[] args = { "archetype:create",
-				"-DgroupId=org.openoffice.dev.tests",
-				"-DartifactId=" + ARTIFACT_ID,
-				"-Dversion=1.0",
-				"-DpackageName=org.openoffice.dev",
-				"-DarchetypeGroupId=org.openoffice.dev",
-				"-DarchetypeArtifactId=maven-ooo-plugin",
-				"-DarchetypeVersion=1.1.1-SNAPSHOT" };
-		int returnValue = mvnRunner.run(args);
-		assertEquals(0, returnValue);
-	}
 	
 	/**
 	 * This test should start all the different mvn commands which are listed
@@ -94,6 +56,7 @@ public class PluginTest {
 	public void startIntegrationTest() throws IOException {
 		FitRunner fitRunner = new FitRunner(new File("target", "result.html"));
 		Counts counts = fitRunner.run();
+		log.info("counts=" + counts);
         assertEquals(0, counts.exceptions);
         assertEquals(0, counts.wrong);
 	}

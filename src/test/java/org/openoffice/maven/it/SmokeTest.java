@@ -24,15 +24,18 @@
 
 package org.openoffice.maven.it;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.plexus.util.cli.*;
+import org.codehaus.plexus.util.cli.CommandLineException;
 import org.junit.Test;
+import org.openoffice.maven.it.fixture.MvnShell;
 
 
 /**
+ * A simple SmokeTest to test some basic stuff.
+ * 
  * @author oliver (oliver.boehm@agentes.de)
  * @since 1.1.1 (01.11.2010)
  */
@@ -46,9 +49,10 @@ public class SmokeTest {
 	 */
 	@Test
 	public void testMaven() throws CommandLineException {
-		MavenRunner mvnRunner = new MavenRunner();
-		String[] args = { "-v" };
-        int returnValue = mvnRunner.run(args);
+		MvnShell mvnShell = new MvnShell();
+		mvnShell.addArgument("-v");
+		mvnShell.run();
+		int returnValue = mvnShell.getExitCode();
         log.info("returnValue = " + returnValue);
         assertEquals(0, returnValue);
 	}
