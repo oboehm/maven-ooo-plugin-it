@@ -1,6 +1,24 @@
 <h1>Integration Test for maven-ooo-plugin</h1>
 <p>This is the integration test project for the maven-ooo-plugin. The use of this plugin is described on the OpenOffice.org wiki article <a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a>.</p>
 <p>This README file is used as input file for <a href="http://fit.c2.com">FIT</a> which understands only HTML. So don't wonder about the .textile suffix of this README. It is used because <a href="http://github.com">github</a> supports this kind of README but you will find no <a href="http://www.textism.com/tools/textile">textile syntax</a> inside, only HTML.</p>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">fit.ActionFixture</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>org.openoffice.maven.it.fixture.FileFixture</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>deleteDir</td>
+      <td>ooo-ext-test</td>
+    </tr>
+  </tbody>
+</table>
+<p>To begin with the example we must first delete the created artifact directory from the last try.</p>
 
 <h2>Features</h2>
 <p>The structure of this README follows the structure of <a href="http://wiki.services.openoffice.org/wiki/OpenOffice_Maven2_Integration">OpenOffice Maven2 Integration</a> and adds the table neeed for the integration tests of the maven-ooo-plugin.</p>
@@ -61,6 +79,16 @@
       <td>enter</td>
       <td>addArgument</td>
       <td>-DarchetypeVersion=1.1.1-SNAPSHOT</td>
+    </tr>
+    <tr>
+      <td>press</td>
+      <td>run</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>check</td>
+      <td>getExitCode</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>

@@ -53,7 +53,7 @@ public final class MvnShell extends Fixture {
 	}
 	
 	private void initWorkingDirectory() {
-		String tmpDir = System.getProperty("java.io.tmpdir");
+		String tmpDir = FileFixture.getWorkingDir().getPath();
 		commandline.setWorkingDirectory(tmpDir);
 	}
 
