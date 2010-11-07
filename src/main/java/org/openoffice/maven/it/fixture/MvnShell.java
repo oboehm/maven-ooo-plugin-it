@@ -24,6 +24,8 @@
 
 package org.openoffice.maven.it.fixture;
 
+import java.io.File;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -55,6 +57,16 @@ public final class MvnShell extends Fixture {
 	private void initWorkingDirectory() {
 		String tmpDir = FileFixture.getWorkingDir().getPath();
 		commandline.setWorkingDirectory(tmpDir);
+	}
+	
+	/**
+	 * Change working dir.
+	 *
+	 * @param dirname the dirname
+	 */
+	public void changeWorkingDir(final String dirname) {
+		File workingDir = commandline.getWorkingDirectory();
+		commandline.setWorkingDirectory(new File(workingDir, dirname));
 	}
 
 	/**

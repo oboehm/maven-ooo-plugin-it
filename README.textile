@@ -78,7 +78,42 @@
     <tr>
       <td>press</td>
       <td>run</td>
-      <td></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>check</td>
+      <td>getExitCode</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Building the IDL files</h3>
+<p>The Java classes corresponding to the UNO types defined in the IDL files are generated before the Java compilation phase.</p>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">fit.ActionFixture</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>org.openoffice.maven.it.fixture.MvnShell</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>changeWorkingDir</td>
+      <td>ooo-ext-test</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>generate-sources</td>
+    </tr>
+    <tr>
+      <td>press</td>
+      <td>run</td>
+      <td>&nbsp;</td>
     </tr>
     <tr>
       <td>check</td>
