@@ -31,18 +31,28 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import fit.Fixture;
+import fit.ColumnFixture;
 
+// TODO: Auto-generated Javadoc
 /**
  * This helper is needed to delete or check files and directories.
  * 
  * @author oliver (oliver.boehm@agentes.de)
  * @since 1.1.1 (05.11.2010)
  */
-public class FileFixture extends Fixture {
+public class FileFixture extends ColumnFixture {
 	
+	/** The log. */
 	private static Log log = LogFactory.getLog(FileFixture.class);
+	
+	/** The working dir. */
 	private static File workingDir = getTmpDir();
+
+	/** Used by FIT framework. */
+	public String file;
+
+	/** Used by FIT framework. */
+	public String comment;
 	
 	/**
 	 * Gets the working dir.
@@ -74,6 +84,52 @@ public class FileFixture extends Fixture {
 		File dir = new File(workingDir, dirname);
 		log.info("cleaning " + dir + "...");
 		FileUtils.deleteDirectory(dir);
+	}
+	
+	/**
+	 * Checks if file exists.
+	 * 
+	 * @return true if file exists
+	 */
+	public boolean exists() {
+		return new File(workingDir, file).exists();
+	}
+	
+	/**
+	 * Checks if file is a file.
+	 *
+	 * @return true, if is file
+	 */
+	public boolean isFile() {
+		return new File(workingDir, file).isFile();
+	}
+	
+	/**
+	 * Checks if file is a directory.
+	 *
+	 * @return true, if is dir
+	 */
+	public boolean isDir() {
+		return new File(workingDir, file).isDirectory();
+	}
+	
+	/**
+	 * Returns the type of the file.
+	 *
+	 * @return "file", "dir" or error message
+	 */
+	public String type() {
+		File f = new File(workingDir, file);
+		if (!f.exists()) {
+			return "not-existing";
+		}
+		if (f.isFile()) {
+			return "file";
+		}
+		if (f.isDirectory()) {
+			return "dir";
+		}
+		return "unknown";
 	}
 
 }

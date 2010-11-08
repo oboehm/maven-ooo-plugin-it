@@ -51,7 +51,9 @@ public final class MvnShell extends Fixture {
 	 * Instantiates a new mvn shell.
 	 */
 	public MvnShell() {
+		this.commandline.clear();
 		initWorkingDirectory();
+		addArgument("-B");
 	}
 	
 	private void initWorkingDirectory() {
@@ -84,7 +86,7 @@ public final class MvnShell extends Fixture {
 	 * @return true, if successful
 	 */
 	public boolean hasArguments() {
-		return this.commandline.getArguments().length > 0;
+		return this.commandline.getArguments().length > 1;
 	}
 	
 	/**
