@@ -80,5 +80,20 @@ public final class MvnShellTest {
 		mvnShell.run();
 		assertEquals(1, mvnShell.getExitCode());
 	}
+	
+	/**
+	 * Only for temporary tests.
+	 *
+	 * @throws CommandLineException the command line exception
+	 */
+//	@Test
+	public void testRunValidate() throws CommandLineException {
+		mvnShell.changeWorkingDir("ooo-ext-test");
+		mvnShell.addArgument("validate");
+		mvnShell.run();
+		assertEquals(0, mvnShell.getExitCode());
+	}
+	
+
 
 }

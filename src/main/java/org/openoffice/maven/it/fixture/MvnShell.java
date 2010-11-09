@@ -51,7 +51,8 @@ public final class MvnShell extends Fixture {
 	 * Instantiates a new mvn shell.
 	 */
 	public MvnShell() {
-		this.commandline.clear();
+		commandline.clear();
+//		commandline.addEnvironment("PATH", "/opt/ooo/OpenOffice.org3.2_SDK/bin:/opt/ooo/OpenOffice.org.app/Contents/MacOS:/opt/ooo/OpenOffice.org.app/Contents/basis-link/ure-link/bin:/usr/bin:/bin:/usr/sbin:/sbin");
 		initWorkingDirectory();
 		addArgument("-B");
 	}
@@ -77,7 +78,7 @@ public final class MvnShell extends Fixture {
 	 * @param arg e.g. "--help"
 	 */
 	public void addArgument(final String arg) {
-		this.commandline.addArguments(new String[] { arg });
+		commandline.addArguments(new String[] { arg });
 	}
 	
 	/**
@@ -86,7 +87,7 @@ public final class MvnShell extends Fixture {
 	 * @return true, if successful
 	 */
 	public boolean hasArguments() {
-		return this.commandline.getArguments().length > 1;
+		return commandline.getArguments().length > 1;
 	}
 	
 	/**
@@ -116,7 +117,7 @@ public final class MvnShell extends Fixture {
 	 */
 	public int getExitCode() {
 		if (this.exitCode == null) {
-			throw new IllegalStateException(this.commandline + " not yet executed");
+			throw new IllegalStateException(commandline + " not yet executed");
 		}
 		return this.exitCode.intValue();
 	}
