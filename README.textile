@@ -283,7 +283,7 @@
     <tr>
       <td>ooo-ext-test/target/ooo-ext-test-0.1-SNAPSHOT.oxt</td>
       <td>file</td>
-      <td>result of the regmerge command</td>
+      <td>the generated OOo extension</td>
     </tr>
   </tbody>
 </table>
