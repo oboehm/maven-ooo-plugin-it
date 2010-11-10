@@ -43,17 +43,17 @@
     <tr>
       <td>enter</td>
       <td>addArgument</td>
-      <td>-DgroupId=org.openoffice.dev.tests</td>
+      <td>-DnewGroupId=org.openoffice.dev.tests</td>
     </tr>
     <tr>
       <td>enter</td>
       <td>addArgument</td>
-      <td>-DartifactId=ooo-ext-test</td>
+      <td>-DnewArtifactId=ooo-ext-test</td>
     </tr>
     <tr>
       <td>enter</td>
       <td>addArgument</td>
-      <td>-Dversion=1.0</td>
+      <td>-DnewVersion=0.1-SNAPSHOT</td>
     </tr>
     <tr>
       <td>enter</td>
@@ -229,6 +229,59 @@
     </tr>
     <tr>
       <td>ooo-ext-test/target/types.rdb</td>
+      <td>file</td>
+      <td>result of the regmerge command</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Generating the OOo-Plugin</h3>
+<p>With 'mvn package' the OpenOffice extension will be generated:</p>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">fit.ActionFixture</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>org.openoffice.maven.it.fixture.MvnShell</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>changeWorkingDir</td>
+      <td>ooo-ext-test</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>package</td>
+    </tr>
+    <tr>
+      <td>press</td>
+      <td>run</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>check</td>
+      <td>getExitCode</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>You'll find the generated plugin in the target directory:</p>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">org.openoffice.maven.it.fixture.FileFixture</td>
+    </tr>
+    <tr>
+      <td><b>file</b></td>
+      <td><b>type()</b></td>
+      <td><b>comment</b></td>
+    </tr>
+    <tr>
+      <td>ooo-ext-test/target/ooo-ext-test-0.1-SNAPSHOT.oxt</td>
       <td>file</td>
       <td>result of the regmerge command</td>
     </tr>
