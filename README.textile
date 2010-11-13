@@ -157,6 +157,11 @@
       <td>registration handler</td>
     </tr>
     <tr>
+      <td>ooo-ext-test/src/main/java/org/openoffice/dev/DemoAddOn.java</td>
+      <td>file</td>
+      <td>a little demo addon</td>
+    </tr>
+    <tr>
       <td>ooo-ext-test/src/main/resources</td>
       <td>dir</td>
       <td>directory for resources</td>

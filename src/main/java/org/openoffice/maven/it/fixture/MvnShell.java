@@ -44,6 +44,8 @@ import fit.Fixture;
 public final class MvnShell extends Fixture {
 	
 	private static final Log log = LogFactory.getLog(MvnShell.class);
+	/** We want to start 'mvn' in batch mode. */
+	private static final String[] defaultArgs = { "-o", "-B" };
 	private final Commandline commandline = new Commandline("mvn");
 	private Integer exitCode;
 	
@@ -52,9 +54,9 @@ public final class MvnShell extends Fixture {
 	 */
 	public MvnShell() {
 		commandline.clear();
+		commandline.addArguments(defaultArgs);
 //		commandline.addEnvironment("PATH", "/opt/ooo/OpenOffice.org3.2_SDK/bin:/opt/ooo/OpenOffice.org.app/Contents/MacOS:/opt/ooo/OpenOffice.org.app/Contents/basis-link/ure-link/bin:/usr/bin:/bin:/usr/sbin:/sbin");
 		initWorkingDirectory();
-		addArgument("-B");
 	}
 	
 	private void initWorkingDirectory() {
@@ -87,7 +89,7 @@ public final class MvnShell extends Fixture {
 	 * @return true, if successful
 	 */
 	public boolean hasArguments() {
-		return commandline.getArguments().length > 1;
+		return commandline.getArguments().length > defaultArgs.length;
 	}
 	
 	/**
