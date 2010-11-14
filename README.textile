@@ -348,6 +348,46 @@
 </table>
 <p>To verify if the OOo plugin is really installed you can start OpenOffice and select the extension manager of you can use 'unopkg list' from the commandline. <b>If you start 'unopkg' be sure OpenOpffice is not running!</b></p>
 
+<h3>Uninstalling the OOo-Plugin</h3>
+<p>You can use OpenOffice's extension manager or 'unopkg remove ooo-ext-test-0.1-SNAPSHOT.oxt' to deinstall the OOo plugin:</p>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">fit.ActionFixture</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>org.openoffice.maven.it.fixture.CmdShell</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>setCommand</td>
+      <td>unopkg</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>remove</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>ooo-ext-test-0.1-SNAPSHOT.oxt</td>
+    </tr>
+    <tr>
+      <td>press</td>
+      <td colspan="2">run</td>
+    </tr>
+    <tr>
+      <td>check</td>
+      <td>getExitCode</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>To verify if the OOo plugin is really deinstalled you can start 'unopkg list' from the commandline and see if plugin is absent.</p>
+
 <h2>Appendix</h2>
 <h3>History</h3>
 <table cellspacing="0" cellpadding="3" border="1">
