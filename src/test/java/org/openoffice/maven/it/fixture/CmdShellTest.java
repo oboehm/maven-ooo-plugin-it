@@ -1,5 +1,5 @@
 /*************************************************************************
- * MvnShell.java
+ * CmdShellTest.java
  *
  * The Contents of this file are made available subject to the terms of
  * either of the GNU Lesser General Public License Version 2.1
@@ -24,41 +24,30 @@
 
 package org.openoffice.maven.it.fixture;
 
+import static org.junit.Assert.*;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
+import org.codehaus.plexus.util.cli.CommandLineException;
+import org.junit.Test;
 
 /**
- * This is a simple wrapper around the Maven command to be called from an 
- * ActionFixture.
- * 
  * @author oliver (oliver.boehm@agentes.de)
- * @since 1.1.1 (02.11.2010)
- * {@link "http://fit.c2.com/wiki.cgi?NetworkExample"}
+ * @since 1.1.1 (14.11.2010)
+ *
  */
-public final class MvnShell extends CmdShell {
-	
-	static final Log log = LogFactory.getLog(MvnShell.class);
-	/** We want to start 'mvn' in batch mode. */
-	static final String[] defaultArgs = { "-o", "-B" };
+public class CmdShellTest {
 
 	/**
-	 * Instantiates a new mvn shell.
-	 */
-	public MvnShell() {
-		super("mvn");
-		commandline.addArguments(defaultArgs);
-	}
-
-	/**
-	 * Checks for arguments.
+	 * Test method for {@link CmdShell#run()}. As test command we use
+	 * 'unopkg' from OpenOffice.
 	 *
-	 * @return true, if successful
+	 * @throws CommandLineException the command line exception
 	 */
-	@Override
-	public boolean hasArguments() {
-		return commandline.getArguments().length > defaultArgs.length;
+	@Test
+	public void testRunUnopkg() throws CommandLineException {
+		CmdShell unopkg = new CmdShell("unopkg");
+		unopkg.addArgument("-h");
+		unopkg.run();
+		assertEquals(0, unopkg.getExitCode());
 	}
 
 }

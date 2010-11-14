@@ -77,8 +77,7 @@
     </tr>
     <tr>
       <td>press</td>
-      <td>run</td>
-      <td>&nbsp;</td>
+      <td colspan="2">run</td>
     </tr>
     <tr>
       <td>check</td>
@@ -110,8 +109,7 @@
     </tr>
     <tr>
       <td>press</td>
-      <td>run</td>
-      <td>&nbsp;</td>
+      <td colspan="2">run</td>
     </tr>
     <tr>
       <td>check</td>
@@ -201,8 +199,7 @@
     </tr>
     <tr>
       <td>press</td>
-      <td>run</td>
-      <td>&nbsp;</td>
+      <td colspan="2">run</td>
     </tr>
     <tr>
       <td>check</td>
@@ -264,8 +261,7 @@
     </tr>
     <tr>
       <td>press</td>
-      <td>run</td>
-      <td>&nbsp;</td>
+      <td colspan="2">run</td>
     </tr>
     <tr>
       <td>check</td>
@@ -292,6 +288,65 @@
     </tr>
   </tbody>
 </table>
+
+<h3>Installing the OOo-Plugin</h3>
+<p>Be sure thet the plugin isn't installed already. If yes call 'unopkg remove ooo-ext-test-0.1-SNAPSHOT.oxt'. Then you can install the generated OOo plugin of the previous step with the 'unopkg' command ('unopkg add -v ooo-ext-test-0.1-SNAPSHOT.oxt'). Or you can use the install phase of Maven and call 'mvn install':</p>
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">fit.ActionFixture</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>org.openoffice.maven.it.fixture.CmdShell</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>setCommand</td>
+      <td>unopkg</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>remove</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>ooo-ext-test-0.1-SNAPSHOT.oxt</td>
+    </tr>
+    <tr>
+      <td>press</td>
+      <td colspan="2">run</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>setCommand</td>
+      <td>unopkg</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>add</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>addArgument</td>
+      <td>ooo-ext-test/target/ooo-ext-test-0.1-SNAPSHOT.oxt</td>
+    </tr>
+    <tr>
+      <td>press</td>
+      <td colspan="2">run</td>
+    </tr>
+    <tr>
+      <td>check</td>
+      <td>getExitCode</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>To verify if the OOo plugin is really installed you can start OpenOffice and select the extension manager of you can use 'unopkg list' from the commandline. <b>If you start 'unopkg' be sure OpenOpffice is not running!</b></p>
 
 <h2>Appendix</h2>
 <h3>History</h3>
