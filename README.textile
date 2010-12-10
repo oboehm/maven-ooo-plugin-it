@@ -8,8 +8,7 @@
     </tr>
     <tr>
       <td>start</td>
-      <td>org.openoffice.maven.it.fixture.FileFixture</td>
-      <td>&nbsp;</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.FileFixture</td>
     </tr>
     <tr>
       <td>enter</td>
@@ -32,8 +31,7 @@
     </tr>
     <tr>
       <td>start</td>
-      <td>org.openoffice.maven.it.fixture.MvnShell</td>
-      <td>&nbsp;</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.MvnShell</td>
     </tr>
     <tr>
       <td>enter</td>
@@ -94,8 +92,7 @@
     </tr>
     <tr>
       <td>start</td>
-      <td>org.openoffice.maven.it.fixture.MvnShell</td>
-      <td>&nbsp;</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.MvnShell</td>
     </tr>
     <tr>
       <td>enter</td>
@@ -184,8 +181,7 @@
     </tr>
     <tr>
       <td>start</td>
-      <td>org.openoffice.maven.it.fixture.MvnShell</td>
-      <td>&nbsp;</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.MvnShell</td>
     </tr>
     <tr>
       <td>enter</td>
@@ -246,8 +242,7 @@
     </tr>
     <tr>
       <td>start</td>
-      <td>org.openoffice.maven.it.fixture.MvnShell</td>
-      <td>&nbsp;</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.MvnShell</td>
     </tr>
     <tr>
       <td>enter</td>
@@ -298,8 +293,7 @@
     </tr>
     <tr>
       <td>start</td>
-      <td>org.openoffice.maven.it.fixture.CmdShell</td>
-      <td>&nbsp;</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.CmdShell</td>
     </tr>
     <tr>
       <td>enter</td>
@@ -357,8 +351,7 @@
     </tr>
     <tr>
       <td>start</td>
-      <td>org.openoffice.maven.it.fixture.CmdShell</td>
-      <td>&nbsp;</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.CmdShell</td>
     </tr>
     <tr>
       <td>enter</td>
