@@ -315,19 +315,18 @@
       <td colspan="2">run</td>
     </tr>
     <tr>
+      <td>start</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.MvnShell</td>
+    </tr>
+    <tr>
       <td>enter</td>
-      <td>setCommand</td>
-      <td>unopkg</td>
+      <td>changeWorkingDir</td>
+      <td>ooo-ext-test</td>
     </tr>
     <tr>
       <td>enter</td>
       <td>addArgument</td>
-      <td>add</td>
-    </tr>
-    <tr>
-      <td>enter</td>
-      <td>addArgument</td>
-      <td>ooo-ext-test/target/ooo-ext-test-0.1-SNAPSHOT.oxt</td>
+      <td>install</td>
     </tr>
     <tr>
       <td>press</td>
