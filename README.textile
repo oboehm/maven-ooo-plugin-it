@@ -362,6 +362,11 @@ the directory with the installed artifact:
       <td>file</td>
       <td>installed artifact</td>
     </tr>
+    <tr>
+      <td>${user.home}/.m2/repository/org/openoffice/dev/tests/ooo-ext-test/0.1-SNAPSHOT/ooo-ext-test-0.1-SNAPSHOT.pom</td>
+      <td>file</td>
+      <td>POM file</td>
+    </tr>
   </tbody>
 </table>
 
