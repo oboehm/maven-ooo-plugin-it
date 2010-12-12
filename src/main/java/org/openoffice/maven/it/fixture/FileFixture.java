@@ -30,6 +30,7 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.helpers.OptionConverter;
 
 import fit.ColumnFixture;
 
@@ -114,12 +115,18 @@ public class FileFixture extends ColumnFixture {
 	}
 	
 	/**
-	 * Returns the type of the file.
+	 * Returns the type of the file. A relative filename is relative to the
+	 * tmp directory. A filename can also contain system properties like in
+	 * "${user.home}/.m2/repository".
 	 *
 	 * @return "file", "dir" or error message
 	 */
 	public String type() {
-		File f = new File(workingDir, file);
+		String filename = OptionConverter.substVars(file, System.getProperties());
+		File f = new File(filename);
+		if (!f.isAbsolute()) {
+			f = new File(workingDir, filename);
+		}
 		if (!f.exists()) {
 			return "not-existing";
 		}
