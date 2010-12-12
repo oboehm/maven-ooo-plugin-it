@@ -82,7 +82,7 @@ public class FileFixture extends ColumnFixture {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public static void deleteDir(final String dirname) throws IOException {
-		File dir = new File(workingDir, dirname);
+		File dir = normalize(dirname);
 		log.info("cleaning " + dir + "...");
 		FileUtils.deleteDirectory(dir);
 	}
@@ -93,7 +93,7 @@ public class FileFixture extends ColumnFixture {
 	 * @return true if file exists
 	 */
 	public boolean exists() {
-		return new File(workingDir, file).exists();
+		return normalize(file).exists();
 	}
 	
 	/**
@@ -102,7 +102,7 @@ public class FileFixture extends ColumnFixture {
 	 * @return true, if is file
 	 */
 	public boolean isFile() {
-		return new File(workingDir, file).isFile();
+		return normalize(file).isFile();
 	}
 	
 	/**
@@ -111,7 +111,7 @@ public class FileFixture extends ColumnFixture {
 	 * @return true, if is dir
 	 */
 	public boolean isDir() {
-		return new File(workingDir, file).isDirectory();
+		return normalize(file).isDirectory();
 	}
 	
 	/**
@@ -122,11 +122,7 @@ public class FileFixture extends ColumnFixture {
 	 * @return "file", "dir" or error message
 	 */
 	public String type() {
-		String filename = OptionConverter.substVars(file, System.getProperties());
-		File f = new File(filename);
-		if (!f.isAbsolute()) {
-			f = new File(workingDir, filename);
-		}
+		File f = normalize(this.file);
 		if (!f.exists()) {
 			return "not-existing";
 		}
@@ -137,6 +133,15 @@ public class FileFixture extends ColumnFixture {
 			return "dir";
 		}
 		return "unknown";
+	}
+
+	private static File normalize(final String filename) {
+		String normalized = OptionConverter.substVars(filename, System.getProperties());
+		File f = new File(normalized);
+		if (!f.isAbsolute()) {
+			f = new File(workingDir, normalized);
+		}
+		return f;
 	}
 
 }

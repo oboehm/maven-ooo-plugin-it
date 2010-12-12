@@ -285,6 +285,24 @@
 </table>
 
 <h3>Installation...</h3>
+Before we test the installation to the local Maven repository we delete first
+the directory with the installed artifact:
+<table cellspacing="0" cellpadding="3" border="1">
+  <tbody>
+    <tr>
+      <td colspan="3">fit.ActionFixture</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td colspan="2">org.openoffice.maven.it.fixture.FileFixture</td>
+    </tr>
+    <tr>
+      <td>enter</td>
+      <td>deleteDir</td>
+      <td>${user.home}/.m2/repository/org/openoffice/dev/tests/ooo-ext-test</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4>...as Maven Artifact</h4>
 <p>Normally the generated OOo plugin is installed direct as OOo plugin. If you don't want this and want to install the OOo plugin as artifact into your local Maven repository you can use the system property "org.openoffice.maven.install=repository":</p>

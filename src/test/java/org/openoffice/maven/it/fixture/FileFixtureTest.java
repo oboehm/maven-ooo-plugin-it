@@ -24,9 +24,10 @@
 
 package org.openoffice.maven.it.fixture;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.junit.Test;
 
@@ -58,6 +59,21 @@ public class FileFixtureTest {
 	public void testTypeWithVariableFilename() {
 		fixture.file = "${user.home}/.m2/repository";
 		assertEquals("dir", fixture.type());
+	}
+	
+	/**
+	 * Tests if files with variables inside (e.g.
+	 * "${user.home}/.m2/repository/abc") are deleted.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	@Test
+	public void testDeleteDir() throws IOException {
+		String dirname = "dir" + System.currentTimeMillis();
+		File testDir = new File(FileFixture.getTmpDir(), dirname);
+		assertTrue("can't be created: " + testDir, testDir.mkdir());
+		FileFixture.deleteDir("${java.io.tmpdir}/" + dirname);
+		assertFalse("not deleted: " + testDir, testDir.exists());
 	}
 
 }
