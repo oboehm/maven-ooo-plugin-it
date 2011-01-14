@@ -41,7 +41,7 @@ public final class MvnShell extends CmdShell {
 	
 	static final Log log = LogFactory.getLog(MvnShell.class);
 	/** We want to start 'mvn' in batch mode. */
-	static final String[] defaultArgs = { "-o", "-B" };
+	static final String[] defaultArgs = { "-B" };
 
 	/**
 	 * Instantiates a new mvn shell.
