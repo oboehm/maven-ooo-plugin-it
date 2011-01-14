@@ -24,7 +24,7 @@
 
 package org.openoffice.maven.it;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -55,6 +55,23 @@ public class SmokeTest {
 		int returnValue = mvnShell.getExitCode();
         log.info("returnValue = " + returnValue);
         assertEquals(0, returnValue);
+	}
+	
+	/**
+	 * To run the CmdShell together with the UNO interface successful we
+	 * should have enough memory. Experiments with MAVEN_OPTS shows that
+	 * MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m" was too less for some
+	 * test, MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m" was enough.
+	 * So we test if there is enough memory available.
+	 * <br/>
+	 * If this test fails add at least "-Xmx768m" to the VM arguments.
+	 */
+	@Test
+	public void testMemory() {
+		long maxMemory = Runtime.getRuntime().maxMemory() / 0x100000;
+		log.info("max. memory: " + maxMemory + " MB");
+		assertTrue(maxMemory + " MB are not enough (recommended: 1 GB)",
+				maxMemory > 512);
 	}
 
 }
