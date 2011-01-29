@@ -51,7 +51,6 @@ public class CmdShell extends Fixture {
 	 */
 	public void setCommand(final String command) {
 		commandline = new Commandline(command);
-		commandline.clear();
 		initWorkingDirectory();
 		initPath();
 	}
