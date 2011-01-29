@@ -70,8 +70,8 @@ public class SmokeTest {
 	public void testMemory() {
 		long maxMemory = Runtime.getRuntime().maxMemory() / 0x100000;
 		log.info("max. memory: " + maxMemory + " MB");
-		assertTrue(maxMemory + " MB are not enough (recommended: 1 GB)",
-				maxMemory > 512);
+		assertTrue(maxMemory + " MB are not enough (recommended: 512 MB)",
+				maxMemory > 240);
 	}
 
 }
