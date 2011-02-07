@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.helpers.OptionConverter;
 import org.codehaus.plexus.util.cli.*;
 import org.openoffice.maven.Environment;
 
@@ -80,8 +81,13 @@ public class CmdShell extends Fixture {
 	 * @param dirname the dirname
 	 */
 	public void changeWorkingDir(final String dirname) {
-		File workingDir = commandline.getWorkingDirectory();
-		commandline.setWorkingDirectory(new File(workingDir, dirname));
+		String normalized = OptionConverter.substVars(dirname, System.getProperties());
+		File dir = new File(normalized);
+		if (!dir.isAbsolute()) {
+			File workingDir = commandline.getWorkingDirectory();
+			dir = new File(workingDir, normalized);
+		}
+		commandline.setWorkingDirectory(dir);
 	}
 
 	/**

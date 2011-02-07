@@ -49,5 +49,20 @@ public class CmdShellTest {
 		unopkg.run();
 		assertEquals(0, unopkg.getExitCode());
 	}
+	
+	/**
+	 * The changeWorkDir() method should also be able to handle system
+	 * properties like <tt>${user.home}</tt>.
+	 * 
+	 * @throws CommandLineException
+	 */
+	@Test
+	public void testChangeWorkingDir() throws CommandLineException {
+		CmdShell cd = new CmdShell("cd");
+		cd.changeWorkingDir("${user.home}");
+		cd.addArgument(".m2");
+		cd.run();
+		assertEquals(0, cd.getExitCode());
+	}
 
 }

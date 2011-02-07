@@ -135,6 +135,12 @@ public class FileFixture extends ColumnFixture {
 		return "unknown";
 	}
 
+	/**
+	 * Normalize a filename and replace system properties.
+	 *
+	 * @param filename e.g. "${user.home}/.m2"
+	 * @return the file e.g. "/Users/oliver/.m2"
+	 */
 	private static File normalize(final String filename) {
 		String normalized = OptionConverter.substVars(filename, System.getProperties());
 		File f = new File(normalized);
