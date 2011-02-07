@@ -81,6 +81,9 @@ public class CmdShell extends Fixture {
 	 * @param dirname the dirname
 	 */
 	public void changeWorkingDir(final String dirname) {
+		if (this.commandline == null) {
+			throw new IllegalStateException("no command set - call setCommand(..) before!");
+		}
 		String normalized = OptionConverter.substVars(dirname, System.getProperties());
 		File dir = new File(normalized);
 		if (!dir.isAbsolute()) {
