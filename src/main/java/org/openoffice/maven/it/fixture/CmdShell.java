@@ -26,7 +26,7 @@ public class CmdShell extends Fixture {
 	protected Commandline commandline;
 	
 	/** The exit code. */
-	private Integer exitCode;
+	protected Integer exitCode;
 	
 	/**
 	 * Instantiates a new command shell.
