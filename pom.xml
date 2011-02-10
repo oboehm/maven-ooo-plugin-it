@@ -3,10 +3,24 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openoffice.dev</groupId>
   <artifactId>maven-ooo-plugin-it</artifactId>
-  <version>1.1-RC1</version>
+  <version>1.1</version>
   <name>maven-ooo-plugin-it</name>
   <description>integration test for maven-ooo-plugin</description>
   
+  <url>https://github.com/oboehm/maven-ooo-plugin-it</url>
+  <issueManagement>
+  	<system>github</system>
+  	<url>https://github.com/oboehm/maven-ooo-plugin-it/issues</url>
+  </issueManagement>
+  <ciManagement>
+  	<system>Jenkins</system>
+  	<url>http://bbb.i:8280/job/maven-ooo-plugin-it/</url>
+  </ciManagement>
+  <inceptionYear>2010</inceptionYear>
+  <scm>
+  	<connection>scm:http://github.com/oboehm/maven-ooo-plugin-it.git</connection>
+  	<developerConnection>scm:https://github.com/oboehm/maven-ooo-plugin-it.git</developerConnection>
+  </scm>
   <build>
     <plugins>
       <plugin>
