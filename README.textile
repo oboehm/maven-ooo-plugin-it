@@ -71,7 +71,7 @@
     <tr>
       <td>enter</td>
       <td>addArgument</td>
-      <td>-DarchetypeVersion=1.1-RC1</td>
+      <td>-DarchetypeVersion=1.2-SNAPSHOT</td>
     </tr>
     <tr>
       <td>press</td>
