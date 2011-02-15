@@ -13,7 +13,7 @@
       <plugin>
         <groupId>org.openoffice.dev</groupId>
         <artifactId>maven-ooo-plugin</artifactId>
-        <version>1.1-SNAPSHOT</version>
+        <version>1.2-SNAPSHOT</version>
         <extensions>true</extensions>
         <configuration>
           <idlDir>src/main/idl</idlDir>
